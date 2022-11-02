@@ -1,6 +1,4 @@
-
 BEGIN;
-
 
 CREATE TABLE IF NOT EXISTS public.users
 (
