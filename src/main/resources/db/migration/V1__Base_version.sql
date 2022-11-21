@@ -1,6 +1,6 @@
 BEGIN;
 
-CREATE TABLE IF NOT EXISTS public.users
+CREATE TABLE IF NOT EXISTS users
 (
     id_user integer NOT NULL,
     login "char" NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS public.users
     PRIMARY KEY (id_user)
 );
 
-CREATE TABLE IF NOT EXISTS public.products
+CREATE TABLE IF NOT EXISTS products
 (
     id_product integer NOT NULL,
     id_subcategory integer NOT NULL,
@@ -20,14 +20,14 @@ CREATE TABLE IF NOT EXISTS public.products
     PRIMARY KEY (id_product)
 );
 
-CREATE TABLE IF NOT EXISTS public.categories
+CREATE TABLE IF NOT EXISTS categories
 (
     id_category integer NOT NULL,
     name "char" NOT NULL,
     PRIMARY KEY (id_category)
 );
 
-CREATE TABLE IF NOT EXISTS public.subcategories
+CREATE TABLE IF NOT EXISTS subcategories
 (
     id_subcategory integer NOT NULL,
     id_category integer NOT NULL,
@@ -35,17 +35,17 @@ CREATE TABLE IF NOT EXISTS public.subcategories
     PRIMARY KEY (id_subcategory)
 );
 
-ALTER TABLE IF EXISTS public.products
+ALTER TABLE IF EXISTS products
     ADD CONSTRAINT fk_subcategory FOREIGN KEY (id_subcategory)
-    REFERENCES public.subcategories (id_subcategory) MATCH SIMPLE
+    REFERENCES subcategories (id_subcategory) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.subcategories
+ALTER TABLE IF EXISTS subcategories
     ADD CONSTRAINT fk_category FOREIGN KEY (id_category)
-    REFERENCES public.categories (id_category) MATCH SIMPLE
+    REFERENCES categories (id_category) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;

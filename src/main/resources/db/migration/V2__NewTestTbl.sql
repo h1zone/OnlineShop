@@ -1,9 +1,9 @@
-CREATE TABLE public.test
+CREATE TABLE test
 (
     id integer NOT NULL,
     text "char",
     PRIMARY KEY (id)
 );
 
-ALTER TABLE IF EXISTS public.test
+ALTER TABLE IF EXISTS test
     OWNER to postgres;
