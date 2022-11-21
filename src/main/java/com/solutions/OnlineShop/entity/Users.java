@@ -24,4 +24,17 @@ public class Users {
     private String login;
     private String password;
     private Boolean is_admin;
+
+    public Users() {
+    }
+
+    // Конструкторы для dao
+    public Users(int id, String login, String password, boolean is_admin) {
+    }
+
+    public void setLogin(String login) {
+    }
+
+    public void setPassword(String password) {
+    }
 }
