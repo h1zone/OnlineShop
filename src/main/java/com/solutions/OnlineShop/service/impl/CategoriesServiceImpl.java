@@ -16,31 +16,25 @@ public class CategoriesServiceImpl implements CategoriesService {
     private CategoriesRepository categoriesRepository;
 
     @Override
-    public Categories addCategorie(Categories categorie) {
-        Categories savedCategorie = categoriesRepository.saveAndFlush(categorie);
-
+    public Categories addCategorie(int id, String name) {
+        Categories savedCategorie = categoriesRepository.saveCategorie(id, name);
         return savedCategorie;
     }
 
-    // не фурычит
+
     @Override
-    public void delete(long id_category) {
-    //    categoriesRepository.delete(id_category);
+    public void delete(int id_category) {
+        categoriesRepository.deleteById(id_category);
     }
 
-
-    // не фурычит. сунул заглушку
     @Override
     public Categories getByName(String name) {
-    //    return categoriesRepository.findByName(name);
-        return null;
+        return categoriesRepository.findByName(name);
     }
 
-    // не фурычит. сунул заглушку
     @Override
     public Categories getById(int id_category) {
-        //    return categoriesRepository.findByName(name);
-        return null;
+        return categoriesRepository.findById(id_category);
     }
 
     @Override
