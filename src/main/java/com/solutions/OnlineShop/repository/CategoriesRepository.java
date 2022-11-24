@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface CategoriesRepository extends JpaRepository<Categories, Long>{
 
-    @Query("select c.id_category from Categories c where c.name = :name")
+    @Query("select c.id_category from Сategories c where c.name = :name")
     Categories findByName(@Param("name") String name);
 
     @Query("select c.name from Categories c where c.id_category = :id_category")
